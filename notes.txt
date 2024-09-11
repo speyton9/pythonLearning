@@ -1,0 +1,17 @@
+Make Player objects each will have traits 
+name
+number
+position
+None action
+
+functions for players
+player action = skate
+
+child class goalie inherits from player
+specific action to goalies - defend 
+
+define helper function to print details
+
+run from name = main
+
+
