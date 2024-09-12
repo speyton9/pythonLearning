@@ -44,8 +44,10 @@ class Goalie(Player):
 
 if __name__ == "__main__":
     test_team = Team("Flyers", "Philadelphia", 'Gritty')
-    test_player = Player("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty')
-    test_skater = Skater("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty', 30, 43)
+    #test_player = Player("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty')
+    test_player = Player("Giroux", 28, 36, "Center", test_team.team_name, test_team.city, test_team.mascot)
+    #test_skater = Skater("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty', 30, 43)
+    test_skater = Skater(test_player.player_name, test_player.number, test_player.age, test_player.position, test_team.team_name, test_team.city, test_team.mascot, 30, 43)
     test_goalie = Goalie("Errson", 32, 24, "Goalie", "Flyers", "Philadelphia", 'Gritty', 40, 43)
     #print(test_team.team_info())
     print(test_player.team_info())
