@@ -29,12 +29,26 @@ class Skater(Player):
     
     def skater_info(self):
         return f"{self.player_name} plays {self.position} and has scored {self.goals} goals and {self.assists} assists for a total of {self.calc_points()}"
+    
+class Goalie(Player):
+    def __init__(self, player_name, number, age, position, team_name, city, mascot, saves, shots):
+        super().__init__(player_name, number, age, position, team_name, city, mascot)
+        self.saves = saves
+        self.shots = shots
+
+    def save_pct(self):
+        return self.saves / self.shots
+    
+    def goalie_info(self):
+        return f"{self.player_name} is a {self.position} on the {self.city} {self.team_name} with a save percentage of {100 * round(self.save_pct(), 4)}%"
 
 if __name__ == "__main__":
     test_team = Team("Flyers", "Philadelphia", 'Gritty')
-    #print(test_team.team_info())
     test_player = Player("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty')
     test_skater = Skater("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty', 30, 43)
-    print(test_player.player_info())
+    test_goalie = Goalie("Errson", 32, 24, "Goalie", "Flyers", "Philadelphia", 'Gritty', 40, 43)
+    #print(test_team.team_info())
     print(test_player.team_info())
+    print(test_player.player_info())
     print(test_skater.skater_info())
+    print(test_goalie.goalie_info())
