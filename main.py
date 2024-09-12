@@ -23,8 +23,8 @@ class Skater(Player):
     def action(self):
         return self.speed
     
-def get_details(person):
-    print(person.action)
+    def get_details(person):
+        print(person.action)
 
 
 if __name__ == "__main__":
