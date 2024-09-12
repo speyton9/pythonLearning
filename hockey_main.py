@@ -17,10 +17,24 @@ class Player(Team):
 
     def player_info(self):
         return f"{self.player_name} is a {self.age} year old {self.position} and wears #{self.number} on the {self.city} {self.team_name}"
+    
+class Skater(Player):
+    def __init__(self, player_name, number, age, position, team_name, city, mascot, goals, assists):
+        super().__init__(player_name, number, age, position, team_name, city, mascot)
+        self.goals= goals
+        self.assists = assists
+
+    def calc_points(self):
+        return self.goals + self.assists
+    
+    def skater_info(self):
+        return f"{self.player_name} plays {self.position} and has scored {self.goals} goals and {self.assists} assists for a total of {self.calc_points()}"
 
 if __name__ == "__main__":
     test_team = Team("Flyers", "Philadelphia", 'Gritty')
     #print(test_team.team_info())
     test_player = Player("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty')
+    test_skater = Skater("Giroux", 28, 36, "Center", "Flyers", "Philadelphia", 'Gritty', 30, 43)
     print(test_player.player_info())
     print(test_player.team_info())
+    print(test_skater.skater_info())
